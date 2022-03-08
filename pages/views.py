@@ -1,8 +1,15 @@
+from pydoc import doc
 from django.shortcuts import render
+from .models import Doctor
 
 # Create your views here.
 def home(request):
-    return render(request, 'pages/home.html')
+    doctors = Doctor.objects.all()
+
+    data = {
+        'doctors': doctors,
+    }
+    return render(request, 'pages/home.html', data)
 
 
 def about(request):
