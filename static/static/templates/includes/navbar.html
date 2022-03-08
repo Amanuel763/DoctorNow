@@ -1,0 +1,58 @@
+{% load static %}
+
+<div class="layer"></div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader">
+    <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<header class="header_sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div id="logo_home">
+                    <h1><a href="{% url 'home' %}" title="Findoctor">Findoctor</a></h1>
+                </div>
+            </div>
+            <nav class="col-lg-9 col-6">
+                <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu
+                        mobile</span></a>
+                <ul id="top_access">
+                    <li><a href="login.html"><i class="pe-7s-user"></i></a></li>
+                    <li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
+                </ul>
+                <div class="main-menu">
+                    <ul>
+                        <li class="submenu">
+                            <a href="{% url 'home' %}" class="show-submenu">Home<i class="icon-down-open-mini"></i></a>
+
+                        </li>
+                        <li class="submenu">
+                            <a href="{% url 'about' %}" class="show-submenu">About<i
+                                    class="icon-down-open-mini"></i></a>
+                        </li>
+                        <li class="submenu">
+                            <a href="{% url 'services' %}" class="show-submenu">Services<i
+                                    class="icon-down-open-mini"></i></a>
+
+                        </li>
+                        <li class="submenu">
+                            <a href="{% url 'contact' %}" class="show-submenu">Contact<i
+                                    class="icon-down-open-mini"></i></a>
+
+                        </li>
+                        <li class="submenu">
+                            <a href="#0" class="show-submenu">Find a Doctor<i class="icon-down-open-mini"></i></a>
+
+                        </li>
+                    </ul>
+                </div>
+                <!-- /main-menu -->
+            </nav>
+        </div>
+    </div>
+    <!-- /container -->
+</header>
+<!-- /header -->

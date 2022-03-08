@@ -1,15 +1,28 @@
+from pydoc import doc
 from django.shortcuts import render
+from .models import Doctor, Founder
+
 
 # Create your views here.
 def home(request):
-    return render(request, 'pages/home.html')
+    doctors = Doctor.objects.all()
+
+    data = {
+        'doctors': doctors,
+    }
+    return render(request, 'pages/home.html', data)
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    founders = Founder.objects.all()
 
-def services(request):
-    return render(request, 'pages/services.html')
+    data = {
+        'founders': founders,
+    }
+    return render(request, 'pages/about.html', data)
 
 def contact(request):
     return render(request, 'pages/contact.html')
+
+def findadoctor(request):
+    return render(request, 'pages/findadoctor.html')

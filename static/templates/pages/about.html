@@ -24,7 +24,7 @@
             <div class="row justify-content-between">
                 <div class="col-lg-6">
                     <figure class="add_bottom_30">
-                        <img src="http://via.placeholder.com/800x450.jpg" class="img-fluid" alt="">
+                        <img src="{% static 'img/doctor6.jpg' %}" class="img-fluid" alt="">
                     </figure>
                 </div>
                 <div class="col-lg-5">
@@ -51,41 +51,15 @@
             <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
         </div>
         <div id="staff" class="owl-carousel owl-theme">
+            {% for founder in founders %}
             <div class="item">
                 <a href="detail-page.html">
                     <div class="title">
-                        <h4>Julia Holmes<em>CEO</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
+                        <h4>{{founder.first_name}} {{founder.last_name}}<em>{{founder.occupation}}</em></h4>
+                    </div><img src="{{founder.photo.url}}" alt="">
                 </a>
             </div>
-            <div class="item">
-                <a href="detail-page.html">
-                    <div class="title">
-                        <h4>Lucas Smith<em>Marketing</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
-                </a>
-            </div>
-            <div class="item">
-                <a href="detail-page.html">
-                    <div class="title">
-                        <h4>Paul Stephens<em>Business strategist</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
-                </a>
-            </div>
-            <div class="item">
-                <a href="detail-page.html">
-                    <div class="title">
-                        <h4>Pablo Himenez<em>Customer Service</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
-                </a>
-            </div>
-            <div class="item">
-                <a href="detail-page.html">
-                    <div class="title">
-                        <h4>Andrew Stuttgart<em>Admissions</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
-                </a>
-            </div>
+            {% endfor %}
         </div>
         <!-- /carousel -->
     </div>
