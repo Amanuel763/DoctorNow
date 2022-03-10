@@ -24,3 +24,17 @@ def doctor_detail(request, id):
     }
 
     return render(request, 'pages/doctor_detail.html', data)
+
+def search(request):
+    all_docs = Doc.objects.order_by('-created_date')
+
+    if 'keyword' in request.GET:
+        keyword = request.GET['keyword']
+        if keyword:
+            all_docs = all_docs.filter(statement__icontains=keyword).order_by('-created_date')
+
+
+    data = {
+        'all_docs': all_docs,
+    }
+    return render(request, 'pages/search.html', data)
