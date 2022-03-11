@@ -20,8 +20,21 @@
                 <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu
                         mobile</span></a>
                 <ul id="top_access">
-                    <li><a href="login.html"><i class="pe-7s-user"></i></a></li>
-                    <li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'dashboard' %}"><i class="pe-7s-user"></i>Dashboard</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}"
+                            class="sign-out">Logout</a>
+                        <form action="{% url 'logout' %}" id="logout" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+                    </li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}"><i class="pe-7s-user"></i></a></li>
+                    <li><a href="{% url 'register' %}"><i class="pe-7s-add-user"></i></a></li>
+                    {% endif %}
                 </ul>
                 <div class="main-menu">
                     <ul>

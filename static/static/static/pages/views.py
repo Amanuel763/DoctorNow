@@ -24,5 +24,5 @@ def about(request):
 def contact(request):
     return render(request, 'pages/contact.html')
 
-def findadoctor(request):
-    return render(request, 'pages/findadoctor.html')
+# def findadoctor(request):
+#     return render(request, 'pages/findadoctor.html')

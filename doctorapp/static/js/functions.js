@@ -3,15 +3,15 @@
 	"use strict";
 
 	// Preload
-    $(window).on("load", function (){  // makes sure the whole site is loaded
+	$(window).on("load", function () {  // makes sure the whole site is loaded
 		'use strict';
 		$('[data-loader="circle-side"]').fadeOut(); // will first fade out the loading animation
 		$('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
 		$('body').delay(350).css({
 			'overflow': 'visible'
 		});
-		var $hero= $('.hero_home .content');
-		var $hero_v= $('#hero_video .content ');
+		var $hero = $('.hero_home .content');
+		var $hero_v = $('#hero_video .content ');
 		$hero.find('h3, p, form').addClass('fadeInUp animated');
 		$hero.find('.btn_1').addClass('fadeIn animated');
 		$hero_v.find('.h3, p, form').addClass('fadeInUp animated');
@@ -59,7 +59,7 @@
 	function toggleHandler(toggle) {
 		toggle.addEventListener("click", function (e) {
 			e.preventDefault();
-			(this.classList.contains("active") === true) ? this.classList.remove("active"): this.classList.add("active");
+			(this.classList.contains("active") === true) ? this.classList.remove("active") : this.classList.add("active");
 		});
 	};
 
@@ -113,44 +113,44 @@
 
 	// Tooltips
 	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-		var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 		return new bootstrap.Tooltip(tooltipTriggerEl)
 	})
-	
+
 	// Detail page func
 	$('#booking_date').dateDropper();
-		$('#booking_time').timeDropper({
-			setCurrentTime: false,
-			meridians: true,
-			primaryColor: "#e74e84",
-			borderColor: "#e74e84",
-			minutesInterval: '15'
-		});
-		
-		var $sticky_nav= $('#secondary_nav');
-		$sticky_nav.stick_in_parent();
-		$sticky_nav.find('ul li a').on('click', function(e) {
-			e.preventDefault();
-			var target = this.hash;
-			var $target = $(target);
-			$('html, body').animate({
-				'scrollTop': $target.offset().top - 95
-			}, 300, 'swing');
-		});
-		$sticky_nav.find('ul li a').on('click', function() {
+	$('#booking_time').timeDropper({
+		setCurrentTime: false,
+		meridians: true,
+		primaryColor: "#e74e84",
+		borderColor: "#e74e84",
+		minutesInterval: '15'
+	});
+
+	var $sticky_nav = $('#secondary_nav');
+	$sticky_nav.stick_in_parent();
+	$sticky_nav.find('ul li a').on('click', function (e) {
+		e.preventDefault();
+		var target = this.hash;
+		var $target = $(target);
+		$('html, body').animate({
+			'scrollTop': $target.offset().top - 95
+		}, 300, 'swing');
+	});
+	$sticky_nav.find('ul li a').on('click', function () {
 		$sticky_nav.find('.active').removeClass('active');
 		$(this).addClass('active');
-		});
-	
+	});
+
 	// Faq section
 	$('#faq_box a[href^="#"]').on('click', function () {
-		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
 			|| location.hostname == this.hostname) {
 			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			   if (target.length) {
-				 $('html,body').animate({
-					 scrollTop: target.offset().top -185
+			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+			if (target.length) {
+				$('html,body').animate({
+					scrollTop: target.offset().top - 185
 				}, 300);
 				return false;
 			}
@@ -168,15 +168,15 @@
 			.toggleClass('icon_minus_alt2 icon_plus_alt2');
 	}
 	$('.accordion').on('hidden.bs.collapse shown.bs.collapse', toggleChevron);
-		function toggleIcon(e) {
-        $(e.target)
-            .prev('.panel-heading')
-            .find(".indicator")
-            .toggleClass('icon_minus_alt2 icon_plus_alt2');
-    }
-    $('.panel-group').on('hidden.bs.collapse', toggleIcon);
-    $('.panel-group').on('shown.bs.collapse', toggleIcon);
-	
+	function toggleIcon(e) {
+		$(e.target)
+			.prev('.panel-heading')
+			.find(".indicator")
+			.toggleClass('icon_minus_alt2 icon_plus_alt2');
+	}
+	$('.panel-group').on('hidden.bs.collapse', toggleIcon);
+	$('.panel-group').on('shown.bs.collapse', toggleIcon);
+
 	// Show Password
 	$('#password, #password1, #password2').hidePassword('focus', {
 		toggle: {
@@ -185,3 +185,7 @@
 	});
 
 })(window.jQuery);
+
+setTimeout(function () {
+	$('#message').fadeOut('slow');
+}, 4000)
